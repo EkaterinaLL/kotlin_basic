@@ -77,4 +77,4 @@ fun exercise16() {
 fun squareRoot(x: Double) {
     val result = sqrt(x)
     println(result)
-
+}
