@@ -71,10 +71,10 @@ fun exercise15() {
 }
 
 fun exercise16() {
-    squareRoot (25.0)
+    squareRoot(25.0)
 }
 
-fun squareRoot(x: Double){
-   val result = sqrt(x)
+fun squareRoot(x: Double) {
+    val result = sqrt(x)
     println(result)
 
