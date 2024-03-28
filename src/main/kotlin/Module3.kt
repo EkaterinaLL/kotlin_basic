@@ -71,10 +71,10 @@ fun exercise15() {
 }
 
 fun exercise16() {
-    operation(24.2, fun(x: Double): Double = sqrt(x))
+    squareRoot (25.0)
 }
 
-fun operation(x: Double, op: (Double) -> Double) {
-    val result = op(x)
+fun squareRoot(x: Double){
+   val result = sqrt(x)
     println(result)
-}
+
