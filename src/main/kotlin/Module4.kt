@@ -6,10 +6,7 @@ fun main(args: Array<String>) {
 
 }
 
-class Aircraft {
-    var aircraftNumber: String = "В745"
-    var maximumFlightRange: Int = 13000
-    var tankCapacity: Int = 12000
+class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val tankCapacity: Int) {
     val fuelConsumptionPer100Km: Int
         get() = (tankCapacity.toDouble() / maximumFlightRange * 100).roundToInt()
 
