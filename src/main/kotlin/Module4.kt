@@ -6,9 +6,12 @@ fun main(args: Array<String>) {
 
 }
 
-class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val tankCapacity: Int) {
+open class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val tankCapacity: Int) {
     val fuelConsumptionPer100Km: Int
         get() = (tankCapacity.toDouble() / maximumFlightRange * 100).roundToInt()
 
 }
+
+class Boeing747(aircraftNumber: String, maximumFlightRange: Int, tankCapacity: Int, val passengerCapacity: Int) :
+    Aircraft(aircraftNumber, maximumFlightRange, tankCapacity)
 
