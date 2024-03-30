@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
 
 }
 
-open class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val tankCapacity: Int) {
+abstract class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val tankCapacity: Int) {
     val fuelConsumptionPer100Km: Int
         get() = (tankCapacity.toDouble() / maximumFlightRange * 100).roundToInt()
 
