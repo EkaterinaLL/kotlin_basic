@@ -6,10 +6,24 @@ fun main(args: Array<String>) {
 
 }
 
-abstract class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val tankCapacity: Int) {
-    val fuelConsumptionPer100Km: Int
+abstract class Aircraft(
+    protected val aircraftNumber: String,
+    protected val maximumFlightRange: Int,
+    protected val tankCapacity: Int
+) {
+    protected val fuelConsumptionPer100Km: Int
         get() = (tankCapacity.toDouble() / maximumFlightRange * 100).roundToInt()
 
+    open fun printAircraftCharacteristics() {
+        println(
+            """
+            Номер воздушного судна: $aircraftNumber
+            Максимальная дальность полета: $maximumFlightRange
+            Вместимость бака: $tankCapacity
+            Расход топлива на 100 км:  $fuelConsumptionPer100Km
+            """
+        )
+    }
 }
 
 class Boeing747(
@@ -18,7 +32,19 @@ class Boeing747(
     tankCapacity: Int,
     override val passengerCapacity: Int
 ) :
-    Aircraft(aircraftNumber, maximumFlightRange, tankCapacity), Passenger
+    Aircraft(aircraftNumber, maximumFlightRange, tankCapacity), Passenger {
+    override fun printAircraftCharacteristics() {
+        println(
+            """
+            Номер воздушного судна: $aircraftNumber
+            Максимальная дальность полета: $maximumFlightRange
+            Вместимость бака: $tankCapacity
+            Расход топлива на 100 км:  $fuelConsumptionPer100Km
+            Вместимость пассажиров: $passengerCapacity
+            """
+        )
+    }
+}
 
 interface Passenger {
     val passengerCapacity: Int
