@@ -3,7 +3,14 @@ package org.example
 import kotlin.math.roundToInt
 
 fun main(args: Array<String>) {
+    val car: Cars = Cars("BMW", "blue", "12345BMW")
+    println(car.toString())
+}
 
+data class Cars(var carModel: String, var carColor: String, var carNumber: String){
+    override fun toString(): String {
+        return "Модель автомобиля: $carModel, Цвет: $carColor, Номер: $carNumber"
+    }
 }
 
 abstract class Aircraft(
