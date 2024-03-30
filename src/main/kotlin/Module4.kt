@@ -12,6 +12,14 @@ open class Aircraft(val aircraftNumber: String, val maximumFlightRange: Int, val
 
 }
 
-class Boeing747(aircraftNumber: String, maximumFlightRange: Int, tankCapacity: Int, val passengerCapacity: Int) :
-    Aircraft(aircraftNumber, maximumFlightRange, tankCapacity)
+class Boeing747(
+    aircraftNumber: String,
+    maximumFlightRange: Int,
+    tankCapacity: Int,
+    override val passengerCapacity: Int
+) :
+    Aircraft(aircraftNumber, maximumFlightRange, tankCapacity), Passenger
 
+interface Passenger {
+    val passengerCapacity: Int
+}
