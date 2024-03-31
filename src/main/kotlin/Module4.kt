@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     println(car.toString())
 }
 
-data class Cars(var carModel: String, var carColor: String, var carNumber: String){
+data class Cars(var carModel: String, var carColor: String, var carNumber: String) {
     override fun toString(): String {
         return "Модель автомобиля: $carModel, Цвет: $carColor, Номер: $carNumber"
     }
@@ -25,11 +25,17 @@ abstract class Aircraft(
         println(
             """
             Номер воздушного судна: $aircraftNumber
-            Максимальная дальность полета: $maximumFlightRange
-            Вместимость бака: $tankCapacity
-            Расход топлива на 100 км:  $fuelConsumptionPer100Km
-            """
+            Максимальная дальность полета: $maximumFlightRange км
+            Вместимость бака: $tankCapacity л
+            Расход топлива на 100 км:  $fuelConsumptionPer100Km на км
+            """.trimIndent()
         )
+    }
+
+    protected abstract fun getModel(): String
+
+    fun getShortInfo(): String {
+        return "${getModel()} $aircraftNumber"
     }
 }
 
@@ -44,12 +50,16 @@ class Boeing747(
         println(
             """
             Номер воздушного судна: $aircraftNumber
-            Максимальная дальность полета: $maximumFlightRange
-            Вместимость бака: $tankCapacity
-            Расход топлива на 100 км:  $fuelConsumptionPer100Km
-            Вместимость пассажиров: $passengerCapacity
-            """
+            Максимальная дальность полета: $maximumFlightRange км
+            Вместимость бака: $tankCapacity л
+            Расход топлива на 100 км:  $fuelConsumptionPer100Km на км
+            Вместимость пассажиров: $passengerCapacity человек
+            """.trimIndent()
         )
+    }
+
+    override fun getModel(): String {
+        return "Boeing747"
     }
 }
 
